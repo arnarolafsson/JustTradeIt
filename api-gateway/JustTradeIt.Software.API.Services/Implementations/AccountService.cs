@@ -10,11 +10,13 @@ namespace JustTradeIt.Software.API.Services.Implementations
     {
         private readonly IUserRepository _userRepository;
         private readonly ITokenRepository _tokenRepository;
+        private readonly IImageService _imageService;
 
-        public AccountService(IUserRepository userRepository, ITokenRepository tokenRepository)
+        public AccountService(IUserRepository userRepository, ITokenRepository tokenRepository, IImageService imageService)
         {
             _userRepository = userRepository;
             _tokenRepository = tokenRepository;
+            _imageService = imageService;
         }
         public UserDto AuthenticateUser(LoginInputModel loginInputModel)
         {
@@ -28,7 +30,7 @@ namespace JustTradeIt.Software.API.Services.Implementations
 
         public UserDto GetProfileInformation(string name)
         {
-            throw new System.NotImplementedException();
+            return _userRepository.GetProfileInformation(name);
         }
 
         public void Logout(int tokenId)
@@ -38,7 +40,9 @@ namespace JustTradeIt.Software.API.Services.Implementations
 
         public Task UpdateProfile(string email, ProfileInputModel profile)
         {
-            throw new System.NotImplementedException();
+            var profileImgUrl = _imageService.UploadImageToBucket(email, profile.ProfileImage).Result;
+            _userRepository.UpdateProfile(email, profileImgUrl, profile);
+            return Task.CompletedTask;
         }
     }
 }

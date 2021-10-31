@@ -49,7 +49,11 @@ namespace JustTradeIt.Software.API
             
             // Services
             services.AddTransient<IAccountService, AccountService>();
-            services.AddTransient<IImageService, ImageService>();
+            var awsConfig = Configuration.GetSection("Aws");
+            services.AddTransient<IImageService>(a => new ImageService(
+                awsConfig.GetSection("BucketName").Value,
+                awsConfig.GetSection("KeyId").Value,
+                awsConfig.GetSection("KeySecret").Value));
             services.AddTransient<IItemService, ItemService>();
             services.AddTransient<IJwtTokenService, JwtTokenService>();
             services.AddTransient<IQueueService, QueueService>();

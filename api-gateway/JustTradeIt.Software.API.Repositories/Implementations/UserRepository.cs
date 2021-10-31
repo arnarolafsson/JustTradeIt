@@ -20,6 +20,7 @@ namespace JustTradeIt.Software.API.Repositories.Implementations
             _dbContext = dbContext;
             _tokenRepository = tokenRepository;
         }
+
         public UserDto AuthenticateUser(LoginInputModel loginInputModel)
         {
             var user = _dbContext.Users.FirstOrDefault(u =>
@@ -43,7 +44,11 @@ namespace JustTradeIt.Software.API.Repositories.Implementations
         {
             var checkEmail = _dbContext.Users.FirstOrDefault(u =>
                 u.Email == inputModel.Email);
-            if (checkEmail != null) { return null; }
+            if (checkEmail != null)
+            {
+                return null;
+            }
+
             var token = _tokenRepository.CreateNewToken();
             var hashedPassword = HashHelper.HashPassword(inputModel.Password, _salt);
             var newUser = new User
@@ -66,7 +71,14 @@ namespace JustTradeIt.Software.API.Repositories.Implementations
 
         public UserDto GetProfileInformation(string email)
         {
-            throw new NotImplementedException();
+            var myprofile = _dbContext.Users.FirstOrDefault(e => e.Email == email);
+            return new UserDto
+            {
+                Identifier = myprofile.PublicIdentifier,
+                Email = myprofile.Email,
+                FullName = myprofile.FullName,
+                ProfileImageUrl = myprofile.ProfileImageUrl,
+            };
         }
 
         public UserDto GetUserInformation(string userIdentifier)
@@ -76,7 +88,10 @@ namespace JustTradeIt.Software.API.Repositories.Implementations
 
         public void UpdateProfile(string email, string profileImageUrl, ProfileInputModel profile)
         {
-            throw new NotImplementedException();
+            var user = _dbContext.Users.FirstOrDefault(u => u.Email == email);
+            user.FullName = profile.Fullname;
+            user.ProfileImageUrl = profileImageUrl;
+            _dbContext.SaveChanges();
         }
     }
 }

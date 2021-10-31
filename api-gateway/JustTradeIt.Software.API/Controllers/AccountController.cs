@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace JustTradeIt.Software.API.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/account")]
     public class AccountController : ControllerBase
@@ -21,6 +22,7 @@ namespace JustTradeIt.Software.API.Controllers
             _tokenService = tokenService;
         }
 
+        [AllowAnonymous]
         [HttpPost]
         [Route("register")]
         public IActionResult Register([FromBody] RegisterInputModel register)
@@ -34,6 +36,7 @@ namespace JustTradeIt.Software.API.Controllers
             return Ok(_tokenService.GenerateJwtToken(user));
         }
 
+        [AllowAnonymous]
         [HttpPost]
         [Route("login")]
         public IActionResult Login([FromBody] LoginInputModel login)
@@ -43,7 +46,6 @@ namespace JustTradeIt.Software.API.Controllers
             return Ok(_tokenService.GenerateJwtToken(user));
         }
 
-        [Authorize]
         [HttpGet]
         [Route("logout")]
         public IActionResult Logout()
@@ -51,6 +53,23 @@ namespace JustTradeIt.Software.API.Controllers
             int.TryParse(User.Claims.FirstOrDefault(c => c.Type == "tokenId").Value, out var tokenId);
             _accountService.Logout(tokenId);
             return NoContent();
+        }
+
+        [HttpGet]
+        [Route("profile")]
+        public IActionResult GetProfileInfo()
+        {
+            var name = User.Claims.FirstOrDefault(c => c.Type == "name").Value;
+            return Ok(_accountService.GetProfileInformation(name));
+        }
+
+        [HttpPut]
+        [Route("profile")]
+        public IActionResult UpdateProfile([FromForm] ProfileInputModel profile)
+        {
+            var name = User.Claims.FirstOrDefault(c => c.Type == "name").Value;
+            _accountService.UpdateProfile(name, profile);
+            return Ok("hmmm");
         }
     }
 }
