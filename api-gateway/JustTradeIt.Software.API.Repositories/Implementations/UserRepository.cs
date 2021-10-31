@@ -22,7 +22,21 @@ namespace JustTradeIt.Software.API.Repositories.Implementations
         }
         public UserDto AuthenticateUser(LoginInputModel loginInputModel)
         {
-            throw new NotImplementedException();
+            var user = _dbContext.Users.FirstOrDefault(u =>
+                u.Email == loginInputModel.Email &&
+                u.HashedPassword == HashHelper.HashPassword(loginInputModel.Password, _salt));
+            if (user == null) return null;
+
+            var token = _tokenRepository.CreateNewToken();
+
+
+            return new UserDto
+            {
+                Identifier = user.PublicIdentifier,
+                Email = user.Email,
+                FullName = user.FullName,
+                TokenId = token.Id
+            };
         }
 
         public UserDto CreateUser(RegisterInputModel inputModel)

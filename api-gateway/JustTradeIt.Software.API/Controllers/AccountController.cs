@@ -12,6 +12,7 @@ namespace JustTradeIt.Software.API.Controllers
     {
         private readonly IAccountService _accountService;
         private readonly ITokenService _tokenService;
+
         public AccountController(IAccountService accountService, ITokenService tokenService)
         {
             _accountService = accountService;
@@ -26,7 +27,17 @@ namespace JustTradeIt.Software.API.Controllers
             {
                 throw new Exception("Model is not valid");
             }
+
             var user = _accountService.CreateUser(register);
+            return Ok(_tokenService.GenerateJwtToken(user));
+        }
+
+        [HttpPost]
+        [Route("login")]
+        public IActionResult Login([FromBody] LoginInputModel login)
+        {
+            var user = _accountService.AuthenticateUser(login);
+            if (user == null) return Unauthorized();
             return Ok(_tokenService.GenerateJwtToken(user));
         }
     }

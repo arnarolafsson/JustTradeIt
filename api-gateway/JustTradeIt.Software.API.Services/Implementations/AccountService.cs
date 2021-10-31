@@ -16,7 +16,7 @@ namespace JustTradeIt.Software.API.Services.Implementations
         }
         public UserDto AuthenticateUser(LoginInputModel loginInputModel)
         {
-            throw new System.NotImplementedException();
+            return _userRepository.AuthenticateUser(loginInputModel);
         }
 
         public UserDto CreateUser(RegisterInputModel inputModel)
