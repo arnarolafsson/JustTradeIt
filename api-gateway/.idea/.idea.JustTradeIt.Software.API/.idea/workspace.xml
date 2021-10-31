@@ -24,14 +24,7 @@
   <component name="ChangeListManager">
     <list default="true" id="92eaf315-e3c5-41a2-99a4-3103305f446c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.JustTradeIt.Software.API/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.JustTradeIt.Software.API/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JustTradeIt.Software.API.Repositories/Implementations/UserRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JustTradeIt.Software.API.Repositories/Implementations/UserRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JustTradeIt.Software.API.Services/Implementations/AccountService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JustTradeIt.Software.API.Services/Implementations/AccountService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JustTradeIt.Software.API.Services/Implementations/ImageService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JustTradeIt.Software.API.Services/Implementations/ImageService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JustTradeIt.Software.API.Services/Implementations/JwtTokenService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JustTradeIt.Software.API.Services/Implementations/JwtTokenService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JustTradeIt.Software.API/Controllers/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JustTradeIt.Software.API/Controllers/AccountController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JustTradeIt.Software.API/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JustTradeIt.Software.API/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JustTradeIt.Software.API/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/JustTradeIt.Software.API/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JustTradeIt.Software.API/data.db" beforeDir="false" afterPath="$PROJECT_DIR$/JustTradeIt.Software.API/data.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,8 +81,8 @@
         <option value="$PROJECT_DIR$/JustTradeIt.Software.API/Startup.cs" />
         <option value="$PROJECT_DIR$/JustTradeIt.Software.API.Services/Implementations/AccountService.cs" />
         <option value="$PROJECT_DIR$/JustTradeIt.Software.API.Repositories/Implementations/UserRepository.cs" />
-        <option value="$PROJECT_DIR$/JustTradeIt.Software.API.Services/Implementations/ImageService.cs" />
         <option value="$PROJECT_DIR$/JustTradeIt.Software.API/Controllers/AccountController.cs" />
+        <option value="$PROJECT_DIR$/JustTradeIt.Software.API.Services/Implementations/ImageService.cs" />
       </list>
     </option>
   </component>
@@ -150,7 +143,7 @@
       <updated>1634586148403</updated>
       <workItem from="1634586166055" duration="1141000" />
       <workItem from="1635355486177" duration="73000" />
-      <workItem from="1635688771423" duration="29136000" />
+      <workItem from="1635688771423" duration="29976000" />
     </task>
     <servers />
   </component>

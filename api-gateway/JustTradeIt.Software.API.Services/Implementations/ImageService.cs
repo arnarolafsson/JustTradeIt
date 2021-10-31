@@ -25,7 +25,6 @@ namespace JustTradeIt.Software.API.Services.Implementations
         {
             string result = "";
             string fileName = image.FileName;
-            Console.WriteLine(fileName);
             string objectKey = $"Images/{fileName}{email}";
             using (Stream fileToUpload = image.OpenReadStream())
             {
@@ -40,9 +39,6 @@ namespace JustTradeIt.Software.API.Services.Implementations
 
             result = string.Format("http://{0}.s3.amazonaws.com/{1}", _bucketname, objectKey);
             return result;
-
-
-
         }
     }
 }
