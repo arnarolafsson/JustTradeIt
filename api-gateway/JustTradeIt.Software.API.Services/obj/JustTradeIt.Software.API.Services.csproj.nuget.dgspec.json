@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/arnarolafsson/Documents/Skolinn/webservices/JustTradeIt/api-gateway/JustTradeIt.Software.API.Services/JustTradeIt.Software.API.Services.csproj": {}
+    "C:\\Users\\Arnar\\JustTradeIt\\api-gateway\\JustTradeIt.Software.API.Services\\JustTradeIt.Software.API.Services.csproj": {}
   },
   "projects": {
-    "/Users/arnarolafsson/Documents/Skolinn/webservices/JustTradeIt/api-gateway/JustTradeIt.Software.API.Models/JustTradeIt.Software.API.Models.csproj": {
+    "C:\\Users\\Arnar\\JustTradeIt\\api-gateway\\JustTradeIt.Software.API.Models\\JustTradeIt.Software.API.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/arnarolafsson/Documents/Skolinn/webservices/JustTradeIt/api-gateway/JustTradeIt.Software.API.Models/JustTradeIt.Software.API.Models.csproj",
+        "projectUniqueName": "C:\\Users\\Arnar\\JustTradeIt\\api-gateway\\JustTradeIt.Software.API.Models\\JustTradeIt.Software.API.Models.csproj",
         "projectName": "JustTradeIt.Software.API.Models",
-        "projectPath": "/Users/arnarolafsson/Documents/Skolinn/webservices/JustTradeIt/api-gateway/JustTradeIt.Software.API.Models/JustTradeIt.Software.API.Models.csproj",
-        "packagesPath": "/Users/arnarolafsson/.nuget/packages/",
-        "outputPath": "/Users/arnarolafsson/Documents/Skolinn/webservices/JustTradeIt/api-gateway/JustTradeIt.Software.API.Models/obj/",
+        "projectPath": "C:\\Users\\Arnar\\JustTradeIt\\api-gateway\\JustTradeIt.Software.API.Models\\JustTradeIt.Software.API.Models.csproj",
+        "packagesPath": "C:\\Users\\Arnar\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Arnar\\JustTradeIt\\api-gateway\\JustTradeIt.Software.API.Models\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/arnarolafsson/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Arnar\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -58,21 +58,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.402/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/arnarolafsson/Documents/Skolinn/webservices/JustTradeIt/api-gateway/JustTradeIt.Software.API.Repositories/JustTradeIt.Software.API.Repositories.csproj": {
+    "C:\\Users\\Arnar\\JustTradeIt\\api-gateway\\JustTradeIt.Software.API.Repositories\\JustTradeIt.Software.API.Repositories.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/arnarolafsson/Documents/Skolinn/webservices/JustTradeIt/api-gateway/JustTradeIt.Software.API.Repositories/JustTradeIt.Software.API.Repositories.csproj",
+        "projectUniqueName": "C:\\Users\\Arnar\\JustTradeIt\\api-gateway\\JustTradeIt.Software.API.Repositories\\JustTradeIt.Software.API.Repositories.csproj",
         "projectName": "JustTradeIt.Software.API.Repositories",
-        "projectPath": "/Users/arnarolafsson/Documents/Skolinn/webservices/JustTradeIt/api-gateway/JustTradeIt.Software.API.Repositories/JustTradeIt.Software.API.Repositories.csproj",
-        "packagesPath": "/Users/arnarolafsson/.nuget/packages/",
-        "outputPath": "/Users/arnarolafsson/Documents/Skolinn/webservices/JustTradeIt/api-gateway/JustTradeIt.Software.API.Repositories/obj/",
+        "projectPath": "C:\\Users\\Arnar\\JustTradeIt\\api-gateway\\JustTradeIt.Software.API.Repositories\\JustTradeIt.Software.API.Repositories.csproj",
+        "packagesPath": "C:\\Users\\Arnar\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Arnar\\JustTradeIt\\api-gateway\\JustTradeIt.Software.API.Repositories\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/arnarolafsson/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Arnar\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -84,8 +84,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "/Users/arnarolafsson/Documents/Skolinn/webservices/JustTradeIt/api-gateway/JustTradeIt.Software.API.Models/JustTradeIt.Software.API.Models.csproj": {
-                "projectPath": "/Users/arnarolafsson/Documents/Skolinn/webservices/JustTradeIt/api-gateway/JustTradeIt.Software.API.Models/JustTradeIt.Software.API.Models.csproj"
+              "C:\\Users\\Arnar\\JustTradeIt\\api-gateway\\JustTradeIt.Software.API.Models\\JustTradeIt.Software.API.Models.csproj": {
+                "projectPath": "C:\\Users\\Arnar\\JustTradeIt\\api-gateway\\JustTradeIt.Software.API.Models\\JustTradeIt.Software.API.Models.csproj"
               }
             }
           }
@@ -124,21 +124,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.402/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/arnarolafsson/Documents/Skolinn/webservices/JustTradeIt/api-gateway/JustTradeIt.Software.API.Services/JustTradeIt.Software.API.Services.csproj": {
+    "C:\\Users\\Arnar\\JustTradeIt\\api-gateway\\JustTradeIt.Software.API.Services\\JustTradeIt.Software.API.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/arnarolafsson/Documents/Skolinn/webservices/JustTradeIt/api-gateway/JustTradeIt.Software.API.Services/JustTradeIt.Software.API.Services.csproj",
+        "projectUniqueName": "C:\\Users\\Arnar\\JustTradeIt\\api-gateway\\JustTradeIt.Software.API.Services\\JustTradeIt.Software.API.Services.csproj",
         "projectName": "JustTradeIt.Software.API.Services",
-        "projectPath": "/Users/arnarolafsson/Documents/Skolinn/webservices/JustTradeIt/api-gateway/JustTradeIt.Software.API.Services/JustTradeIt.Software.API.Services.csproj",
-        "packagesPath": "/Users/arnarolafsson/.nuget/packages/",
-        "outputPath": "/Users/arnarolafsson/Documents/Skolinn/webservices/JustTradeIt/api-gateway/JustTradeIt.Software.API.Services/obj/",
+        "projectPath": "C:\\Users\\Arnar\\JustTradeIt\\api-gateway\\JustTradeIt.Software.API.Services\\JustTradeIt.Software.API.Services.csproj",
+        "packagesPath": "C:\\Users\\Arnar\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Arnar\\JustTradeIt\\api-gateway\\JustTradeIt.Software.API.Services\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/arnarolafsson/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Arnar\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -150,11 +150,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "/Users/arnarolafsson/Documents/Skolinn/webservices/JustTradeIt/api-gateway/JustTradeIt.Software.API.Models/JustTradeIt.Software.API.Models.csproj": {
-                "projectPath": "/Users/arnarolafsson/Documents/Skolinn/webservices/JustTradeIt/api-gateway/JustTradeIt.Software.API.Models/JustTradeIt.Software.API.Models.csproj"
+              "C:\\Users\\Arnar\\JustTradeIt\\api-gateway\\JustTradeIt.Software.API.Models\\JustTradeIt.Software.API.Models.csproj": {
+                "projectPath": "C:\\Users\\Arnar\\JustTradeIt\\api-gateway\\JustTradeIt.Software.API.Models\\JustTradeIt.Software.API.Models.csproj"
               },
-              "/Users/arnarolafsson/Documents/Skolinn/webservices/JustTradeIt/api-gateway/JustTradeIt.Software.API.Repositories/JustTradeIt.Software.API.Repositories.csproj": {
-                "projectPath": "/Users/arnarolafsson/Documents/Skolinn/webservices/JustTradeIt/api-gateway/JustTradeIt.Software.API.Repositories/JustTradeIt.Software.API.Repositories.csproj"
+              "C:\\Users\\Arnar\\JustTradeIt\\api-gateway\\JustTradeIt.Software.API.Repositories\\JustTradeIt.Software.API.Repositories.csproj": {
+                "projectPath": "C:\\Users\\Arnar\\JustTradeIt\\api-gateway\\JustTradeIt.Software.API.Repositories\\JustTradeIt.Software.API.Repositories.csproj"
               }
             }
           }
@@ -217,7 +217,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.402/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

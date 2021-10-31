@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using JustTradeIt.Software.API.Models.DTOs;
 
 namespace JustTradeIt.Software.API.Services.Interfaces
 {

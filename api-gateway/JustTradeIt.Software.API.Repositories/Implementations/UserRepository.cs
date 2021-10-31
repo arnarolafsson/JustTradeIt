@@ -1,4 +1,6 @@
 using System;
+using JustTradeIt.Software.API.Models.DTOs;
+using JustTradeIt.Software.API.Models.InputModels;
 using JustTradeIt.Software.API.Repositories.Interfaces;
 
 namespace JustTradeIt.Software.API.Repositories.Implementations

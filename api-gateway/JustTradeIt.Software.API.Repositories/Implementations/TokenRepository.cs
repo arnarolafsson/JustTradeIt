@@ -1,3 +1,4 @@
+using JustTradeIt.Software.API.Models.Entities;
 using JustTradeIt.Software.API.Repositories.Interfaces;
 
 namespace JustTradeIt.Software.API.Repositories.Implementations

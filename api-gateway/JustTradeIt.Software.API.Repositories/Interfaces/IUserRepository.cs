@@ -1,3 +1,6 @@
+using JustTradeIt.Software.API.Models.DTOs;
+using JustTradeIt.Software.API.Models.InputModels;
+
 namespace JustTradeIt.Software.API.Repositories.Interfaces
 {
     public interface IUserRepository

@@ -1,3 +1,5 @@
+using JustTradeIt.Software.API.Models.Entities;
+
 namespace JustTradeIt.Software.API.Repositories.Interfaces
 {
     public interface ITokenRepository
