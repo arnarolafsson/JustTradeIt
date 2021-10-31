@@ -1,3 +1,4 @@
+using JustTradeIt.Software.API.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,6 +9,18 @@ namespace JustTradeIt.Software.API.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        // TODO: Setup routes
+        private readonly IUserService _userService;
+
+        public UserController(IUserService userService)
+        {
+            _userService = userService;
+        }
+
+        [HttpGet]
+        [Route("{identifier}", Name = "getUserInfo")]
+        public IActionResult getUserInfo(string identifier)
+        {
+            return Ok(_userService.GetUserInformation(identifier));
+        }
     }
 }

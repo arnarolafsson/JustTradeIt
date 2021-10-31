@@ -77,13 +77,20 @@ namespace JustTradeIt.Software.API.Repositories.Implementations
                 Identifier = myprofile.PublicIdentifier,
                 Email = myprofile.Email,
                 FullName = myprofile.FullName,
-                ProfileImageUrl = myprofile.ProfileImageUrl,
+                ProfileImageUrl = myprofile.ProfileImageUrl
             };
         }
 
         public UserDto GetUserInformation(string userIdentifier)
         {
-            throw new NotImplementedException();
+            var user = _dbContext.Users.FirstOrDefault(u => u.PublicIdentifier == userIdentifier);
+            return new UserDto
+            {
+                Identifier = user.PublicIdentifier,
+                Email = user.Email,
+                FullName = user.FullName,
+                ProfileImageUrl = user.ProfileImageUrl
+            };
         }
 
         public void UpdateProfile(string email, string profileImageUrl, ProfileInputModel profile)
