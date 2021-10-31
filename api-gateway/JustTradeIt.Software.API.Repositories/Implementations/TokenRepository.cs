@@ -24,12 +24,18 @@ namespace JustTradeIt.Software.API.Repositories.Implementations
 
         public bool IsTokenBlacklisted(int tokenId)
         {
-            throw new System.NotImplementedException();
+            var token = _dbContext.JwtTokens.FirstOrDefault(t => t.Id == tokenId);
+            if (token == null) return true;
+            return token.blacklisted;
         }
 
         public void VoidToken(int tokenId)
         {
-            throw new System.NotImplementedException();
+            var token = _dbContext.JwtTokens.FirstOrDefault(t => t.Id == tokenId);
+            if (token == null) return;
+
+            token.blacklisted = true;
+            _dbContext.SaveChanges();
         }
     }
 }
