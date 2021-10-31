@@ -19,6 +19,11 @@
         <e p="Middlewares" t="Include">
           <e p="JwtAuthenticationMiddleware.cs" t="Include" />
         </e>
+        <e p="Migrations" t="Include">
+          <e p="20211031161617_Init.cs" t="Include" />
+          <e p="20211031161617_Init.Designer.cs" t="Include" />
+          <e p="TradeDbContextModelSnapshot.cs" t="Include" />
+        </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="net5.0" t="Include">

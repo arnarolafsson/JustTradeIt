@@ -1,6 +1,12 @@
+using System;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 using Amazon.Runtime.Internal;
 using JustTradeIt.Software.API.Models.DTOs;
+using JustTradeIt.Software.API.Repositories.Interfaces;
 using JustTradeIt.Software.API.Services.Interfaces;
+using Microsoft.IdentityModel.Tokens;
 
 namespace JustTradeIt.Software.API.Services.Implementations
 {
@@ -20,7 +26,27 @@ namespace JustTradeIt.Software.API.Services.Implementations
         }
         public string GenerateJwtToken(UserDto user)
         {
-            throw new System.NotImplementedException();
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var tokenDescriptor = GetSecurityTokenDescriptor(user);
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+            return tokenHandler.WriteToken(token);
+        }
+        private SecurityTokenDescriptor GetSecurityTokenDescriptor(UserDto user)
+        {
+            var key = Encoding.ASCII.GetBytes(_secret);
+            return new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(new[]
+                {
+                    new Claim("name", user.Email),
+                    new Claim("fullName", user.FullName),
+                    new Claim("tokenId", user.TokenId.ToString())
+                }),
+                Audience = _audience,
+                Issuer = _issuer,
+                Expires = DateTime.UtcNow.AddMinutes(double.Parse(_expDate)),
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+            };
         }
     }
 }

@@ -1,12 +1,19 @@
 using System.Threading.Tasks;
 using JustTradeIt.Software.API.Models.DTOs;
 using JustTradeIt.Software.API.Models.InputModels;
+using JustTradeIt.Software.API.Repositories.Interfaces;
 using JustTradeIt.Software.API.Services.Interfaces;
 
 namespace JustTradeIt.Software.API.Services.Implementations
 {
     public class AccountService : IAccountService
     {
+        private readonly IUserRepository _userRepository;
+
+        public AccountService(IUserRepository userRepository)
+        {
+            _userRepository = userRepository;
+        }
         public UserDto AuthenticateUser(LoginInputModel loginInputModel)
         {
             throw new System.NotImplementedException();
@@ -14,7 +21,7 @@ namespace JustTradeIt.Software.API.Services.Implementations
 
         public UserDto CreateUser(RegisterInputModel inputModel)
         {
-            throw new System.NotImplementedException();
+            return _userRepository.CreateUser(inputModel);
         }
 
         public UserDto GetProfileInformation(string name)
