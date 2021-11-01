@@ -22,6 +22,12 @@
         <e p="Migrations" t="Include">
           <e p="20211031161617_Init.cs" t="Include" />
           <e p="20211031161617_Init.Designer.cs" t="Include" />
+          <e p="20211101120815_SoftDelete.cs" t="Include" />
+          <e p="20211101120815_SoftDelete.Designer.cs" t="Include" />
+          <e p="20211101122050_SoftDelete2.cs" t="Include" />
+          <e p="20211101122050_SoftDelete2.Designer.cs" t="Include" />
+          <e p="20211101123049_SoftDelete3.cs" t="Include" />
+          <e p="20211101123049_SoftDelete3.Designer.cs" t="Include" />
           <e p="TradeDbContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">

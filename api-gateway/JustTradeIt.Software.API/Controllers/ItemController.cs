@@ -37,6 +37,14 @@ namespace JustTradeIt.Software.API.Controllers
             var name = User.Claims.FirstOrDefault(c => c.Type == "name").Value;
             return Ok(_itemService.AddNewItem(name, item));
         }
-        
+
+        [HttpDelete]
+        [Route("{identifier}", Name = "RemoveItem")]
+        public IActionResult RemoveItem(string identifier)
+        {
+            var email = User.Claims.FirstOrDefault(e => e.Type == "name").Value;
+            _itemService.RemoveItem(email, identifier);
+            return NoContent();
+        }
     }
 }

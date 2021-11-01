@@ -115,7 +115,16 @@ namespace JustTradeIt.Software.API.Repositories.Implementations
 
         public void RemoveItem(string email, string identifier)
         {
-            throw new NotImplementedException();
+            var user = _dbContext.Users.FirstOrDefault(i => i.Email == email);
+            var item = _dbContext.Items.FirstOrDefault(i => i.PublicIdentifier == identifier);
+
+            if (user.Id != item.OwnerId)
+            {
+                throw new Exception("Error: You do not own this item!");
+            }
+
+            _dbContext.Items.Update(item).CurrentValues["isDeleted"] = true;
+            _dbContext.SaveChanges();
         }
     }
 }
