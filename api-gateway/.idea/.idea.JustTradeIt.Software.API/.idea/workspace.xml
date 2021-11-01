@@ -25,10 +25,11 @@
     <list default="true" id="92eaf315-e3c5-41a2-99a4-3103305f446c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.JustTradeIt.Software.API/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.JustTradeIt.Software.API/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.JustTradeIt.Software.API/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.JustTradeIt.Software.API/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JustTradeIt.Software.API.Repositories/Contexts/TradeDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JustTradeIt.Software.API.Repositories/Contexts/TradeDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JustTradeIt.Software.API.Models/Entities/Trade.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JustTradeIt.Software.API.Models/Entities/Trade.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JustTradeIt.Software.API.Repositories/Implementations/ItemRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JustTradeIt.Software.API.Repositories/Implementations/ItemRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JustTradeIt.Software.API.Services/Implementations/ItemService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JustTradeIt.Software.API.Services/Implementations/ItemService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JustTradeIt.Software.API/Controllers/ItemController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JustTradeIt.Software.API/Controllers/ItemController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JustTradeIt.Software.API.Repositories/Implementations/TradeRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JustTradeIt.Software.API.Repositories/Implementations/TradeRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JustTradeIt.Software.API.Services/Implementations/TradeService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JustTradeIt.Software.API.Services/Implementations/TradeService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JustTradeIt.Software.API/Controllers/TradeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JustTradeIt.Software.API/Controllers/TradeController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JustTradeIt.Software.API/Migrations/TradeDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JustTradeIt.Software.API/Migrations/TradeDbContextModelSnapshot.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JustTradeIt.Software.API/data.db" beforeDir="false" afterPath="$PROJECT_DIR$/JustTradeIt.Software.API/data.db" afterDir="false" />
     </list>
@@ -59,18 +60,15 @@
         <option value="$PROJECT_DIR$/JustTradeIt.Software.API.Models/Entities/ItemCondition.cs" />
         <option value="$PROJECT_DIR$/JustTradeIt.Software.API.Models/Entities/TradeItem.cs" />
         <option value="$PROJECT_DIR$/JustTradeIt.Software.API.Models/Entities/JwtToken.cs" />
-        <option value="$PROJECT_DIR$/JustTradeIt.Software.API.Models/Entities/Trade.cs" />
         <option value="$PROJECT_DIR$/JustTradeIt.Software.API.Repositories/Helpers/HashHelper.cs" />
         <option value="$PROJECT_DIR$/JustTradeIt.Software.API.Repositories/Interfaces/IItemRepository.cs" />
         <option value="$PROJECT_DIR$/JustTradeIt.Software.API.Repositories/Interfaces/ITokenRepository.cs" />
-        <option value="$PROJECT_DIR$/JustTradeIt.Software.API.Repositories/Implementations/TradeRepository.cs" />
         <option value="$PROJECT_DIR$/JustTradeIt.Software.API.Repositories/Interfaces/ITradeRepository.cs" />
         <option value="$PROJECT_DIR$/JustTradeIt.Software.API.Repositories/Interfaces/IUserRepository.cs" />
         <option value="$PROJECT_DIR$/JustTradeIt.Software.API.Services/Interfaces/IAccountService.cs" />
         <option value="$PROJECT_DIR$/JustTradeIt.Software.API.Services/Interfaces/IItemService.cs" />
         <option value="$PROJECT_DIR$/JustTradeIt.Software.API.Services/Interfaces/ITokenService.cs" />
         <option value="$PROJECT_DIR$/JustTradeIt.Software.API.Services/Interfaces/ITradeService.cs" />
-        <option value="$PROJECT_DIR$/JustTradeIt.Software.API.Services/Implementations/TradeService.cs" />
         <option value="$PROJECT_DIR$/JustTradeIt.Software.API.Services/Interfaces/IUserService.cs" />
         <option value="$PROJECT_DIR$/JustTradeIt.Software.API.Models/Contexts/TradeDbContexts.cs" />
         <option value="$PROJECT_DIR$/JustTradeIt.Software.API.Models/DTOs/TradeDetailsDto.cs" />
@@ -93,6 +91,10 @@
         <option value="$PROJECT_DIR$/JustTradeIt.Software.API/Startup.cs" />
         <option value="$PROJECT_DIR$/JustTradeIt.Software.API.Repositories/Contexts/TradeDbContext.cs" />
         <option value="$PROJECT_DIR$/JustTradeIt.Software.API.Repositories/Implementations/ItemRepository.cs" />
+        <option value="$PROJECT_DIR$/JustTradeIt.Software.API/Controllers/TradeController.cs" />
+        <option value="$PROJECT_DIR$/JustTradeIt.Software.API.Services/Implementations/TradeService.cs" />
+        <option value="$PROJECT_DIR$/JustTradeIt.Software.API.Models/Entities/Trade.cs" />
+        <option value="$PROJECT_DIR$/JustTradeIt.Software.API.Repositories/Implementations/TradeRepository.cs" />
       </list>
     </option>
   </component>
@@ -154,7 +156,7 @@
       <workItem from="1634586166055" duration="1141000" />
       <workItem from="1635355486177" duration="73000" />
       <workItem from="1635688771423" duration="43740000" />
-      <workItem from="1635765507219" duration="4605000" />
+      <workItem from="1635765507219" duration="6575000" />
     </task>
     <servers />
   </component>

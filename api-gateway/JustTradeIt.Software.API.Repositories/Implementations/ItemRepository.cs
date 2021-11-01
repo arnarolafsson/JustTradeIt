@@ -122,7 +122,7 @@ namespace JustTradeIt.Software.API.Repositories.Implementations
             {
                 throw new Exception("Error: You do not own this item!");
             }
-
+            // TODO: remove trade requests for item
             _dbContext.Items.Update(item).CurrentValues["isDeleted"] = true;
             _dbContext.SaveChanges();
         }
