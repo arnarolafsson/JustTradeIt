@@ -23,6 +23,13 @@ namespace JustTradeIt.Software.API.Controllers
             return Ok(_itemService.GetItems(pageSize, pageNumber, ascendingSortOrder).Items.ToList());
         }
 
+        [HttpGet]
+        [Route("{identifier}", Name = "GetItem")]
+        public IActionResult GetItem(string identifier)
+        {
+            return Ok(_itemService.GetItemByIdentifier(identifier));
+        }
+
         [HttpPost]
         [Route("")]
         public IActionResult createItem([FromBody] ItemInputModel item)

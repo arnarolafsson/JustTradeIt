@@ -23,10 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="92eaf315-e3c5-41a2-99a4-3103305f446c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.JustTradeIt.Software.API/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.JustTradeIt.Software.API/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.JustTradeIt.Software.API/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.JustTradeIt.Software.API/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JustTradeIt.Software.API.Models/Entities/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JustTradeIt.Software.API.Models/Entities/Item.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JustTradeIt.Software.API.Models/Envelope.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JustTradeIt.Software.API.Models/Envelope.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JustTradeIt.Software.API.Repositories/Implementations/ItemRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JustTradeIt.Software.API.Repositories/Implementations/ItemRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JustTradeIt.Software.API.Services/Implementations/ItemService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JustTradeIt.Software.API.Services/Implementations/ItemService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JustTradeIt.Software.API/Controllers/ItemController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JustTradeIt.Software.API/Controllers/ItemController.cs" afterDir="false" />
@@ -90,8 +87,8 @@
         <option value="$PROJECT_DIR$/JustTradeIt.Software.API.Models/Envelope.cs" />
         <option value="$PROJECT_DIR$/JustTradeIt.Software.API/population.sql" />
         <option value="$PROJECT_DIR$/JustTradeIt.Software.API.Models/Entities/Item.cs" />
-        <option value="$PROJECT_DIR$/JustTradeIt.Software.API.Services/Implementations/ItemService.cs" />
         <option value="$PROJECT_DIR$/JustTradeIt.Software.API/Controllers/ItemController.cs" />
+        <option value="$PROJECT_DIR$/JustTradeIt.Software.API.Services/Implementations/ItemService.cs" />
         <option value="$PROJECT_DIR$/JustTradeIt.Software.API.Repositories/Implementations/ItemRepository.cs" />
       </list>
     </option>
@@ -153,7 +150,8 @@
       <updated>1634586148403</updated>
       <workItem from="1634586166055" duration="1141000" />
       <workItem from="1635355486177" duration="73000" />
-      <workItem from="1635688771423" duration="42358000" />
+      <workItem from="1635688771423" duration="43740000" />
+      <workItem from="1635765507219" duration="1538000" />
     </task>
     <servers />
   </component>
@@ -172,6 +170,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />

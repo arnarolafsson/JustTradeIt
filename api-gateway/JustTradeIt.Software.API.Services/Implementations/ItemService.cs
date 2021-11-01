@@ -21,7 +21,7 @@ namespace JustTradeIt.Software.API.Services.Implementations
 
         public ItemDetailsDto GetItemByIdentifier(string identifier)
         {
-            throw new System.NotImplementedException();
+            return _itemRepository.GetItemByIdentifier(identifier);
         }
 
         public Envelope<ItemDto> GetItems(int pageSize, int pageNumber, bool ascendingSortOrder)
