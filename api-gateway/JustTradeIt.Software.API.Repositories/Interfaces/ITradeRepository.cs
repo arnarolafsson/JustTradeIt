@@ -10,7 +10,7 @@ namespace JustTradeIt.Software.API.Repositories.Interfaces
         TradeDetailsDto GetTradeByIdentifier(string identifier);
         IEnumerable<TradeDto> GetTradeRequests(string email, bool onlyIncludeActive);
         string CreateTradeRequest(string email, TradeInputModel trade);
-        TradeDetailsDto UpdateTradeRequest(string email, string identifier, Models.Enums.TradeStatus newStatus);
+        void UpdateTradeRequest(string email, string identifier, Models.Enums.TradeStatus newStatus);
         IEnumerable<TradeDto> GetUserTrades(string userIdentifier);
     }
 }

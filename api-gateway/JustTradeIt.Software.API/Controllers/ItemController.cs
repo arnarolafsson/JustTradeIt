@@ -10,10 +10,11 @@ namespace JustTradeIt.Software.API.Controllers
     public class ItemController : ControllerBase
     {
         private readonly IItemService _itemService;
-
+        private string _email;
         public ItemController(IItemService itemService)
         {
             _itemService = itemService;
+            _email = User.Claims.FirstOrDefault(e => e.Type == "name").Value;
         }
 
         [HttpGet]
@@ -34,16 +35,14 @@ namespace JustTradeIt.Software.API.Controllers
         [Route("")]
         public IActionResult createItem([FromBody] ItemInputModel item)
         {
-            var name = User.Claims.FirstOrDefault(c => c.Type == "name").Value;
-            return Ok(_itemService.AddNewItem(name, item));
+            return Ok(_itemService.AddNewItem(_email, item));
         }
 
         [HttpDelete]
         [Route("{identifier}", Name = "RemoveItem")]
         public IActionResult RemoveItem(string identifier)
         {
-            var email = User.Claims.FirstOrDefault(e => e.Type == "name").Value;
-            _itemService.RemoveItem(email, identifier);
+            _itemService.RemoveItem(_email, identifier);
             return NoContent();
         }
     }

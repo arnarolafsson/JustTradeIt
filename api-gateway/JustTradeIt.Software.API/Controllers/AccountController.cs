@@ -15,11 +15,13 @@ namespace JustTradeIt.Software.API.Controllers
     {
         private readonly IAccountService _accountService;
         private readonly ITokenService _tokenService;
+        private string _email;
 
         public AccountController(IAccountService accountService, ITokenService tokenService)
         {
             _accountService = accountService;
             _tokenService = tokenService;
+            
         }
 
         [AllowAnonymous]
@@ -59,16 +61,16 @@ namespace JustTradeIt.Software.API.Controllers
         [Route("profile")]
         public IActionResult GetProfileInfo()
         {
-            var name = User.Claims.FirstOrDefault(c => c.Type == "name").Value;
-            return Ok(_accountService.GetProfileInformation(name));
+            _email = User.Claims.FirstOrDefault(e => e.Type == "name").Value;
+            return Ok(_accountService.GetProfileInformation(_email));
         }
 
         [HttpPut]
         [Route("profile")]
         public IActionResult UpdateProfile([FromForm] ProfileInputModel profile)
         {
-            var name = User.Claims.FirstOrDefault(c => c.Type == "name").Value;
-            _accountService.UpdateProfile(name, profile);
+            _email = User.Claims.FirstOrDefault(e => e.Type == "name").Value;
+            _accountService.UpdateProfile(_email, profile);
             return Ok("hmmm");
         }
     }

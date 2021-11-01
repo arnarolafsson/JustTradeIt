@@ -1,6 +1,9 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using JustTradeIt.Software.API.Models.DTOs;
+using JustTradeIt.Software.API.Models.Enums;
 using JustTradeIt.Software.API.Models.InputModels;
 using JustTradeIt.Software.API.Repositories.Interfaces;
 using JustTradeIt.Software.API.Services.Interfaces;
@@ -22,7 +25,7 @@ namespace JustTradeIt.Software.API.Services.Implementations
 
         public TradeDetailsDto GetTradeByIdentifer(string tradeIdentifier)
         {
-            throw new NotImplementedException();
+            return _tradeRepository.GetTradeByIdentifier(tradeIdentifier);
         }
 
         public IEnumerable<TradeDto> GetTradeRequests(string email, bool onlyIncludeActive = true)
@@ -32,12 +35,28 @@ namespace JustTradeIt.Software.API.Services.Implementations
 
         public IEnumerable<TradeDto> GetTrades(string email)
         {
-            throw new NotImplementedException();
+            return _tradeRepository.GetTrades(email);
         }
 
         public void UpdateTradeRequest(string identifier, string email, string status)
         {
-            throw new NotImplementedException();
+            TradeStatus statusEnum;
+            switch(status)
+            {
+                case "Accepted":
+                    _tradeRepository.UpdateTradeRequest(identifier, email, TradeStatus.Accepted);
+                    break;
+                case "Declined":
+                    _tradeRepository.UpdateTradeRequest(identifier, email, TradeStatus.Declined);
+                    break;
+                case "Cancelled":
+                    _tradeRepository.UpdateTradeRequest(identifier, email, TradeStatus.Cancelled);
+                    break;
+                default:
+                    _tradeRepository.UpdateTradeRequest(identifier, email, TradeStatus.TimedOut);
+                    break;
+            }
+            
         }
     }
 }

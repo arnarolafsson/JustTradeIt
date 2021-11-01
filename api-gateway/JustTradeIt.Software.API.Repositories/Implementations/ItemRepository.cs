@@ -4,6 +4,7 @@ using System.Linq;
 using JustTradeIt.Software.API.Models;
 using JustTradeIt.Software.API.Models.DTOs;
 using JustTradeIt.Software.API.Models.Entities;
+using JustTradeIt.Software.API.Models.Enums;
 using JustTradeIt.Software.API.Models.InputModels;
 using JustTradeIt.Software.API.Repositories.Contexts;
 using JustTradeIt.Software.API.Repositories.Interfaces;
@@ -22,7 +23,7 @@ namespace JustTradeIt.Software.API.Repositories.Implementations
 
         public string AddNewItem(string email, ItemInputModel item)
         {
-            var nextId = _dbContext.Items.Select(r => r.Id).Max() + 1;
+            var nextId = _dbContext.Items.IgnoreQueryFilters().Select(r => r.Id).Max() + 1;
 
             var conditionid = _dbContext.ItemConditions.FirstOrDefault(
                 c => c.ConditionCode == item.ConditionCode).Id;
@@ -83,10 +84,18 @@ namespace JustTradeIt.Software.API.Repositories.Implementations
 
         public ItemDetailsDto GetItemByIdentifier(string identifier)
         {
-            
+            int counter = 0;
             var item = _dbContext.Items.FirstOrDefault(i => i.PublicIdentifier == identifier);
             if (item == null) { throw new Exception("item not Found"); }
-
+            var tradeItems = _dbContext.TradeItems.Where(i => i.ItemId == item.Id).ToList();
+            tradeItems.ForEach(i =>
+            {
+                var trades = _dbContext.Trades.FirstOrDefault(j => j.Id == i.TradeId);
+                if (trades.TradeStatus == (int) TradeStatus.Pending)
+                {
+                    counter++;
+                }
+            });
             var owner = _dbContext.Users.FirstOrDefault(o => o.Id == item.OwnerId);
             var condition = _dbContext.ItemConditions.FirstOrDefault(c => c.Id == item.ItemConditionId).ConditionCode;
             var images = _dbContext.ItemImages.Where(i => i.ItemId == item.Id)
@@ -100,7 +109,7 @@ namespace JustTradeIt.Software.API.Repositories.Implementations
                 Title = item.Title,
                 Description = item.Description,
                 Images = images,
-                // TODO active requests
+                NumberOfActiveRequests = counter,
                 Condition = condition,
                 Owner = new UserDto
                 {
