@@ -9,6 +9,7 @@
         public string ShortDescription { get; set; }
         public int ItemConditionId { get; set; }
         public int OwnerId { get; set; }
+        public bool isDeleted { get; set; }
         
     }
 }

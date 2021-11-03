@@ -57,7 +57,7 @@ namespace JustTradeIt.Software.API.Repositories.Implementations
         public Envelope<ItemDto> GetAllItems(int pageSize, int pageNumber, bool ascendingSortOrder)
         {
             List<ItemDto> final = new List<ItemDto>();
-            var items = _dbContext.Items.ToList();
+            var items = _dbContext.Items.Where(i => i.isDeleted == false).ToList();
             items.ForEach(i =>
             {
                 var owner = _dbContext.Users.FirstOrDefault(u => u.Id == i.OwnerId);
@@ -126,13 +126,16 @@ namespace JustTradeIt.Software.API.Repositories.Implementations
         {
             var user = _dbContext.Users.FirstOrDefault(i => i.Email == email);
             var item = _dbContext.Items.FirstOrDefault(i => i.PublicIdentifier == identifier);
-
+            var itemTrades = _dbContext.TradeItems.Where(i => i.ItemId == item.Id).ToList();
             if (user.Id != item.OwnerId)
             {
                 throw new Exception("Error: You do not own this item!");
             }
-            // TODO: remove trade requests for item
-            _dbContext.Items.Update(item).CurrentValues["isDeleted"] = true;
+            itemTrades.ForEach(i => {
+                var trade = _dbContext.Trades.FirstOrDefault(t => t.Id == i.TradeId);
+                trade.TradeStatus = TradeStatus.Cancelled;
+            });
+            item.isDeleted = true;
             _dbContext.SaveChanges();
         }
     }

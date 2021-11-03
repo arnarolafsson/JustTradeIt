@@ -13,9 +13,7 @@ namespace JustTradeIt.Software.API.Services.Implementations
     {
         private readonly AmazonS3Client s3Client;
         private readonly string _bucketname;
-        private readonly string _keyId;
-        private readonly string _keySecret;
-        
+
         public ImageService(string bucketname, string keyId, string keySecret)
         {
             _bucketname = bucketname;

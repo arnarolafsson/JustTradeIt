@@ -2,9 +2,12 @@ using System.Linq;
 using JustTradeIt.Software.API.Models.InputModels;
 using JustTradeIt.Software.API.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
+
 
 namespace JustTradeIt.Software.API.Controllers
 {
+    [Authorize]
     [Route("api/items")]
     [ApiController]
     public class ItemController : ControllerBase
@@ -14,7 +17,6 @@ namespace JustTradeIt.Software.API.Controllers
         public ItemController(IItemService itemService)
         {
             _itemService = itemService;
-            _email = User.Claims.FirstOrDefault(e => e.Type == "name").Value;
         }
 
         [HttpGet]
@@ -35,6 +37,7 @@ namespace JustTradeIt.Software.API.Controllers
         [Route("")]
         public IActionResult createItem([FromBody] ItemInputModel item)
         {
+            _email = User.Claims.FirstOrDefault(e => e.Type == "name").Value;
             return Ok(_itemService.AddNewItem(_email, item));
         }
 
@@ -42,6 +45,7 @@ namespace JustTradeIt.Software.API.Controllers
         [Route("{identifier}", Name = "RemoveItem")]
         public IActionResult RemoveItem(string identifier)
         {
+            _email = User.Claims.FirstOrDefault(e => e.Type == "name").Value;
             _itemService.RemoveItem(_email, identifier);
             return NoContent();
         }

@@ -30,7 +30,7 @@ namespace JustTradeIt.Software.API.Services.Implementations
 
         public IEnumerable<TradeDto> GetTradeRequests(string email, bool onlyIncludeActive = true)
         {
-            throw new NotImplementedException();
+            return _tradeRepository.GetTradeRequests(email, onlyIncludeActive);
         }
 
         public IEnumerable<TradeDto> GetTrades(string email)
@@ -40,7 +40,6 @@ namespace JustTradeIt.Software.API.Services.Implementations
 
         public void UpdateTradeRequest(string identifier, string email, string status)
         {
-            TradeStatus statusEnum;
             switch(status)
             {
                 case "Accepted":

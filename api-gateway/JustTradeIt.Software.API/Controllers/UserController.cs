@@ -22,5 +22,11 @@ namespace JustTradeIt.Software.API.Controllers
         {
             return Ok(_userService.GetUserInformation(identifier));
         }
+        [HttpGet]
+        [Route("{identifier}/trades", Name = "GetUserTrades")]
+        public IActionResult getUserTrades(string identifier)
+        {
+            return Ok(_userService.GetUserTrades(identifier));
+        }
     }
 }

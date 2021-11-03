@@ -29,11 +29,15 @@ namespace JustTradeIt.Software.API.Repositories.Implementations
             trade.ItemsInTrade.ToList().ForEach(i =>
             {
                 var item = _dbContext.Items.FirstOrDefault(j => j.PublicIdentifier == i.Identifier);
-                if (item == null) { throw new Exception("Item does not exist"); }
+                if (item == null || item.isDeleted)
+                {
+                    throw new Exception("Item does not exist"); 
+                }
                 if (item.OwnerId != sender.Id && item.OwnerId != receiver.Id)
                 {
                     throw new Exception("You can not trade this item");
                 }
+
                 var tradeItem = new TradeItem
                 {
                     TradeId = nextTradeId,
@@ -138,7 +142,41 @@ namespace JustTradeIt.Software.API.Repositories.Implementations
 
         public IEnumerable<TradeDto> GetTradeRequests(string email, bool onlyIncludeActive)
         {
-            throw new NotImplementedException();
+            List<TradeDto> tradeRequests = new List<TradeDto>();
+            var user = _dbContext.Users.FirstOrDefault(i => i.Email == email);
+            if (onlyIncludeActive)
+            {
+                var trades = _dbContext.Trades
+                    .Where(i => (i.ReceiverId == user.Id || i.SenderId == user.Id) && i.TradeStatus == TradeStatus.Pending).ToList();
+                trades.ForEach(i =>
+                {
+                    tradeRequests.Add(new TradeDto
+                    {
+                        Identifier = i.PublicIdentifier,
+                        IssuedDate = i.IssueDate,
+                        ModifiedDate = i.ModifiedByDate,
+                        ModifiedBy = i.ModifiedBy,
+                        Status = i.TradeStatus
+                    });
+                });
+            }
+            else 
+            {
+                var trades = _dbContext.Trades.Where(i => i.ReceiverId == user.Id || i.SenderId == user.Id).ToList();
+                trades.ForEach(i =>
+                {
+                    tradeRequests.Add(new TradeDto
+                    {
+                        Identifier = i.PublicIdentifier,
+                        IssuedDate = i.IssueDate,
+                        ModifiedDate = i.ModifiedByDate,
+                        ModifiedBy = i.ModifiedBy,
+                        Status = i.TradeStatus
+                    });
+                });
+            }
+            return tradeRequests;
+
         }
 
         public IEnumerable<TradeDto> GetTrades(string email)
@@ -155,7 +193,8 @@ namespace JustTradeIt.Software.API.Repositories.Implementations
                         Identifier = i.PublicIdentifier,
                         IssuedDate = i.IssueDate,
                         ModifiedDate = i.ModifiedByDate,
-                        ModifiedBy = i.ModifiedBy
+                        ModifiedBy = i.ModifiedBy,
+                        Status = i.TradeStatus
                     });
                 }
             });
@@ -164,7 +203,16 @@ namespace JustTradeIt.Software.API.Repositories.Implementations
 
         public IEnumerable<TradeDto> GetUserTrades(string userIdentifier)
         {
-            throw new NotImplementedException();
+            var user = _dbContext.Users.FirstOrDefault(i => i.PublicIdentifier == userIdentifier);
+            var trades = _dbContext.Trades.Where(i => i.ReceiverId == user.Id || i.SenderId == user.Id)
+                .Select(t => new TradeDto{
+                    Identifier = t.PublicIdentifier,
+                    IssuedDate = t.IssueDate,
+                    ModifiedDate = t.ModifiedByDate,
+                    ModifiedBy = t.ModifiedBy,
+                    Status = t.TradeStatus
+                });
+            return trades.ToList();
         }
 
         public void UpdateTradeRequest(string identifier, string email, TradeStatus newStatus)
@@ -186,6 +234,18 @@ namespace JustTradeIt.Software.API.Repositories.Implementations
             {
                 throw new Exception("You can only Accept or Decline the trade!");
             }
+            var items = _dbContext.TradeItems.Where(i => i.TradeId == trade.Id).ToList();
+            items.ForEach(i =>{
+                var item = _dbContext.Items.FirstOrDefault(j => j.Id == i.ItemId);
+                if (item.OwnerId == trade.SenderId)
+                {
+                    item.OwnerId = trade.ReceiverId;
+                }
+                else
+                {
+                    item.OwnerId = trade.SenderId;
+                }
+            });
             trade.ModifiedByDate = DateTime.Now;
             trade.ModifiedBy = user.FullName;
             trade.TradeStatus = newStatus;
@@ -193,7 +253,7 @@ namespace JustTradeIt.Software.API.Repositories.Implementations
 
             
 
-            // TODO rabbitmq
+            // TODO: rabbitmq
             
 
         }

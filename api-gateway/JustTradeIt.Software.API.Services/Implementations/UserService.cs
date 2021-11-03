@@ -9,10 +9,12 @@ namespace JustTradeIt.Software.API.Services.Implementations
     public class UserService : IUserService
     {
         private readonly IUserRepository _userRepository;
+        private readonly ITradeRepository _tradeRepository;
 
-        public UserService(IUserRepository userRepository)
+        public UserService(IUserRepository userRepository, ITradeRepository tradeRepository)
         {
             _userRepository = userRepository;
+            _tradeRepository = tradeRepository;
         }
         public UserDto GetUserInformation(string identifier)
         {
@@ -21,7 +23,7 @@ namespace JustTradeIt.Software.API.Services.Implementations
 
         public IEnumerable<TradeDto> GetUserTrades(string userIdentifier)
         {
-            throw new System.NotImplementedException();
+            return _tradeRepository.GetUserTrades(userIdentifier);
         }
     }
 }
