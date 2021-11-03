@@ -61,7 +61,6 @@ namespace JustTradeIt.Software.API.Repositories.Implementations
             };
             _dbContext.Trades.Add(tradeRequest);
             _dbContext.SaveChanges();
-            // TODO: RABBITMQ
             return tradeRequest.PublicIdentifier;
         }
 
