@@ -71,7 +71,7 @@ namespace JustTradeIt.Software.API.Controllers
         {
             _email = User.Claims.FirstOrDefault(e => e.Type == "name").Value;
             _accountService.UpdateProfile(_email, profile);
-            return Ok("hmmm");
+            return Ok();
         }
     }
 }

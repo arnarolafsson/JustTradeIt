@@ -10,10 +10,11 @@ namespace JustTradeIt.Software.API.Services.Implementations
     {
         protected IModel Channel { get; private set; }
         private IConnection _connection;
-
+/*
+* Inspired by http://codereform.com/blog/post/net-core-and-rabbitmq/
+*/
         public void Dispose()
         {
-            // TODO: Dispose the connection and channel
             try
             {
                 Channel?.Close();
