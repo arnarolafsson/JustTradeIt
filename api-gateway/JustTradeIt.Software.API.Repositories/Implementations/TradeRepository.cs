@@ -43,7 +43,6 @@ namespace JustTradeIt.Software.API.Repositories.Implementations
                     TradeId = nextTradeId,
                     UserId = sender.Id,
                     ItemId = item.Id
-                        
                 };
                 _dbContext.TradeItems.Add(tradeItem);
                 _dbContext.SaveChanges();
